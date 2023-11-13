@@ -28,6 +28,10 @@ export default {
       axios.get(store.url).then((response) =>{
         store.cards_list = response.data.data;
         console.log(store.cards_list);
+
+        setTimeout(()=>{
+          store.loading = false;
+        }, 2000)
       })
      }
   },
