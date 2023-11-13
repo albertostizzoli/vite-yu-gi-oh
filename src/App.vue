@@ -23,9 +23,6 @@ export default {
       store
     }
   },
-  created(){
-    this.getCards();
-  },
   methods: {
      getCards(){
       axios.get(store.url).then((response) =>{
@@ -34,9 +31,12 @@ export default {
       })
      }
   },
+  created(){
+    this.getCards();
+  },
 }
 </script>
 
 <style lang="scss">
-@use './assets/styles/main.scss'
+@use './assets/styles/main.scss' as *;
 </style>

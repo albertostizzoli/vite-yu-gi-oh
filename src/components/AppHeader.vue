@@ -12,8 +12,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use '../assets/styles/partials/varaiables' as *;
-@use '../assets/styles/partials/mixins' as *;
 
 header {
     height: 80px;
