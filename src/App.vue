@@ -31,7 +31,7 @@ export default {
       })
      }
   },
-  created(){
+   created(){
     this.getCards();
   },
 }
