@@ -1,13 +1,17 @@
 <template>
-
+  <AppHeader />
 </template>
 
 <script>
-  export default {
-    
-  }
+import AppHeader from './components/AppHeader.vue';
+export default {
+  name: 'App',
+  components: {
+    AppHeader
+  },
+}
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+@use './assets/styles/main.scss'
 </style>
