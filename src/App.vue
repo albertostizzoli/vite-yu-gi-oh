@@ -1,6 +1,7 @@
 <template>
   <AppHeader />
   <main>
+    <AppSelect @search="searchCard" />
     <CardList />
   </main>
 
@@ -9,6 +10,7 @@
 <script>
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
+import AppSelect from './components/AppSelect.vue';
 import CardList from './components/CardList.vue';
 import { store } from './store.js';
 
@@ -16,6 +18,7 @@ export default {
   name: 'App',
   components: {
     AppHeader,
+    AppSelect,
     CardList,
   },
   data() {
@@ -28,12 +31,18 @@ export default {
       axios.get(store.url).then((response) =>{
         store.cards_list = response.data.data;
         console.log(store.cards_list);
-
         setTimeout(()=>{
           store.loading = false;
         }, 2000)
+      });
+     },
+    searchCard(type){
+      console.log(type);
+      store.url += `&type=${type}`;
+      axios.get(store.url).then((response) =>{
+        store.cards_list = response.data.data;
       })
-     }
+    }
   },
    created(){
     this.getCards();
