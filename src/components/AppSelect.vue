@@ -2,8 +2,9 @@
     <div class="container">
         <div class="row m-3">
             <div class="col-12">
-                <select name="" id="">
-                    <option value=""></option>
+                <select name="" id="" @change="sendValue" v-model="selected">
+                    <option value="">Category</option>
+                    <option v-for="(item, index) in onlyValue" :key="index" :value="item">{{ item }}</option>
                 </select>
             </div>
         </div>
@@ -16,12 +17,19 @@ export default {
     name: 'AppSelect',
     data() {
         return {
-            store
+            store,
+            selected: ''
+        }
+    },
+    computed: {
+        onlyValue(){
+            const only = [...new Set(store.cards_list.map((item) => item.type))];
+            return only;
         }
     },
     methods: {
         sendValue() {
-            this.$emit('search', store.selected)
+            this.$emit('search', this.selected)
         }
     }
 }

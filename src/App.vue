@@ -37,11 +37,17 @@ export default {
       });
      },
     searchCard(type){
-      console.log(type);
-      store.url += `&type=${type}`;
-      axios.get(store.url).then((response) =>{
-        store.cards_list = response.data.data;
-      })
+      let newUrl = store.url;
+      if(type != '') {
+        newUrl += `&type=${type}`;
+        axios.get(newUrl).then((response) =>{
+          store.cards_list = response.data.data;
+        })
+      } else{
+        axios.get(store.url).then((response) =>{
+           store.cards_list = response.data.data;
+        })
+      }
     }
   },
    created(){
