@@ -1,8 +1,8 @@
 <template>
     <div class="card text-center">
-        <img class="w-100" :src="card.card_images[0].image_url" alt="Card">
+        <img :src="card.card_images[0].image_url" alt="card-image" @click="cardImageFullScreen">
         <span class="text-light name-card">{{ card.name }}</span>
-        <span>{{ card.archetype }}</span>
+        <span>{{ card.type }}</span>
     </div>
 </template>
 

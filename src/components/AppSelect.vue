@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-        <div class="row m-3">
+    <div class="container pt-3 pb-3">
+        <div class="row">
             <div class="col-12">
-                <select name="" id="" @change="sendValue" v-model="selected">
+                <select class="form-select" name="" id="" @change="sendValue" v-model="selected">
                     <option value="">Category</option>
                     <option v-for="(item, index) in onlyValue" :key="index" :value="item">{{ item }}</option>
                 </select>
@@ -36,5 +36,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.form-select{
+    width: 30%;
+}
 
 </style>

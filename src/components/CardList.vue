@@ -1,10 +1,7 @@
 <template>
-    <div v-if="store.loading" class="loading text-center">
-        <h1>LOADING...</h1>
-    </div>
-    <div v-else class="container">
-        <div class="cards">
-            <h4>Founded {{ store.cards_list.length }} cards</h4>
+    <div class="container pt-2">
+        <div class="cards mb-2">
+            <h4>Founded {{ numberResults }} cards</h4>
         </div>
         <div class="d-flex justify-content-between flex-wrap">
             <Card v-for="(item, index) in store.cards_list" :key="index" :card="item" />
@@ -24,19 +21,19 @@ export default {
         return {
             store
         }
+    },
+    computed: {
+        numberResults() {
+            return store.cards_list.length
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.loading {
-    height: calc(100vh - 80px);
-    width: 100%;
-}
 
 .container {
     background-color: white;
-    padding: 30px;
 
     .cards{
         color: white;
